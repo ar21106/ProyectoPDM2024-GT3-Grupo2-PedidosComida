@@ -12,11 +12,17 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.pdm115gt3g2.pedidosapp.databinding.ActivityMainBinding
+import com.pdm115gt3g2.pedidosapp.db.PedidosAppDataBase
+import com.pdm115gt3g2.pedidosapp.db.menus.TipoItem
+import com.pdm115gt3g2.pedidosapp.db.repositories.TipoItemRepository
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+
+    //repositorio para usar la tabla de TipoItems
+    private lateinit var tipoItemRepository: TipoItemRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +49,25 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        //iniciando base de datos
+        val db = PedidosAppDataBase.getDatabase(this)
+        //accediendo al Dao
+        val tipoItemDao = db.TipoItemDao()
+
+        //iniciando repositorio de db
+        tipoItemRepository = TipoItemRepository(tipoItemDao)
+
+        //insertando tipos de items
+        val tipo1 = TipoItem(nombreTipo = "hamburgesas")
+        val tipo2 = TipoItem(nombreTipo = "pizzas")
+        val tipo3 = TipoItem(nombreTipo = "bebidas")
+        tipoItemRepository.insertar(tipo1)
+        tipoItemRepository.insertar(tipo2)
+        tipoItemRepository.insertar(tipo3)
+
+        //IMPORTANTE: cerrar base de datos
+        db.close()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
