@@ -6,9 +6,9 @@ import java.util.Date
 
 @Entity
 data class Menu(
-    @PrimaryKey(autoGenerate = true) val idMenu: Int,
     val nombreMenu: String,
     val descripcionMenu: String,
     val fechaCreado: Date,
-    val disponible: Int
+    val disponible: Int,
+    @PrimaryKey(autoGenerate = true) val idMenu: Int = 0
 )

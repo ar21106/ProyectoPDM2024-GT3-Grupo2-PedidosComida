@@ -9,4 +9,6 @@
 
     <string name="menu_inicio">Inicio</string>
     <string name="menu_menus">Menus</string>
+
+    <string name="default_text">default text</string>
 </resources>

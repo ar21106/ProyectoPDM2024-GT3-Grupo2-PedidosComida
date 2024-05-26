@@ -19,7 +19,7 @@ import java.util.Date
     MenuDetalle::class,
     TipoItem::class
                      ],
-    version = 2,
+    version = 1,
     exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class PedidosAppDataBase : RoomDatabase(){
