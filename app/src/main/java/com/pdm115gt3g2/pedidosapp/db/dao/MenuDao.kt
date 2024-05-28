@@ -1,5 +1,6 @@
 package com.pdm115gt3g2.pedidosapp.db.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -15,7 +16,7 @@ interface MenuDao{
 
     @Transaction
     @Query("SELECT * FROM Menu Where idMenu = :idMenu")
-    fun findById(idMenu: Int): MenuConItems
+    fun findById(idMenu: Int): LiveData<MenuConItems>
 
     @Insert
     fun insertMenu(vararg menu: Menu)

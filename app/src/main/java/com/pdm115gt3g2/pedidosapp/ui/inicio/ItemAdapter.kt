@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pdm115gt3g2.pedidosapp.R
 import com.pdm115gt3g2.pedidosapp.db.relaciones.ItemConTipoItem
 
-class ItemAdapter(private val mList: List<ItemConTipoItem>): RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
+class ItemAdapter(private var mList: List<ItemConTipoItem>): RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
     //accediendo a los text view de la vista: cardview_item
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
@@ -38,5 +38,10 @@ class ItemAdapter(private val mList: List<ItemConTipoItem>): RecyclerView.Adapte
     //retornando tamaño de la lista
     override fun getItemCount(): Int {
         return mList.size
+    }
+
+    fun updateItems(newItems: List<ItemConTipoItem>) {
+        mList = newItems
+        notifyDataSetChanged()
     }
 }

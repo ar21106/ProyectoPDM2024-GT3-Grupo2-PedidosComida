@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pdm115gt3g2.pedidosapp.databinding.FragmentInicioBinding
+import com.pdm115gt3g2.pedidosapp.db.PedidosAppDataBase
 import com.pdm115gt3g2.pedidosapp.db.repositories.MenuRepository
 
 class InicioFragment : Fragment() {
@@ -50,25 +52,33 @@ class InicioFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //TODO arreglar el recycler view para mostrar los items del menu principal
-        /*
+
         //extrayendo items del menu principal de la BD
         //menu principal tiene id = 1
         val db = PedidosAppDataBase.getDatabase(requireContext())
         val menuDao = db.MenuDao()
         menuRepository = MenuRepository(menuDao)
-        val menu = menuRepository.buscarPorId(1)
+
 
         //usando el recycler view
         var recyclerView = binding.recycleViewItems
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        val adapter = ItemAdapter(menu.items)
+        val adapter = ItemAdapter(listOf())
         recyclerView.adapter = adapter
 
-         */
+        // Observe the LiveData from the repository
+        menuRepository.buscarPorId(1).observe(viewLifecycleOwner) { menu ->
+            menu?.let {
+                adapter.updateItems(it.items)
+            }
+        }
+
+
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }

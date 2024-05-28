@@ -1,5 +1,6 @@
 package com.pdm115gt3g2.pedidosapp.db.repositories
 
+import androidx.lifecycle.LiveData
 import com.pdm115gt3g2.pedidosapp.db.dao.MenuDao
 import com.pdm115gt3g2.pedidosapp.db.menus.Menu
 import com.pdm115gt3g2.pedidosapp.db.relaciones.MenuConItems
@@ -15,7 +16,7 @@ class MenuRepository(private var menuDao: MenuDao) {
         }
     }
 
-    fun buscarPorId(id: Int): MenuConItems {
+    fun buscarPorId(id: Int): LiveData<MenuConItems> {
         return menuDao.findById(id)
     }
 }
