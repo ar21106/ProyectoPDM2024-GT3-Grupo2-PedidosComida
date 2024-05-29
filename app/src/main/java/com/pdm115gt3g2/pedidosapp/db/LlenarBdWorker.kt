@@ -43,12 +43,14 @@ class LlenarBdWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
         // *** INSERTANDO MENU ***
         val menu1 = Menu(nombreMenu = "Menu principal", descripcionMenu = "El menu principal del restaurante", fechaCreado = Date(), disponible = 1)
-        menuDao.insertMenu(menu1)
+        val menu2 = Menu(nombreMenu = "Menu secundario", descripcionMenu = "Otro menu del restaurante", fechaCreado = Date(), disponible = 1)
+        menuDao.insertMenu(menu1, menu2)
 
         // *** INSERTANDO DETALLE DEL MENU ***
         val detalle1 = MenuDetalle(idMenu = 1, idItem = 1)
         val detalle2 = MenuDetalle(idMenu = 1, idItem = 2)
-        val detalle3 = MenuDetalle(idMenu = 1, idItem = 3)
-        menuDetalleDao.insertMenuDetalle(detalle1, detalle2, detalle3)
+        val detalle3 = MenuDetalle(idMenu = 2, idItem = 2)
+        val detalle4 = MenuDetalle(idMenu = 2, idItem = 3)
+        menuDetalleDao.insertMenuDetalle(detalle1, detalle2, detalle3, detalle4)
     }
 }

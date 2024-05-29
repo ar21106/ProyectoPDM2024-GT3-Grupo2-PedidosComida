@@ -10,9 +10,8 @@ import com.pdm115gt3g2.pedidosapp.db.relaciones.MenuConItems
 
 @Dao
 interface MenuDao{
-    @Transaction
     @Query("SELECT * FROM Menu")
-    fun getMenuConItems(): List<MenuConItems>
+    fun getAll(): LiveData<List<Menu>>
 
     @Transaction
     @Query("SELECT * FROM Menu Where idMenu = :idMenu")

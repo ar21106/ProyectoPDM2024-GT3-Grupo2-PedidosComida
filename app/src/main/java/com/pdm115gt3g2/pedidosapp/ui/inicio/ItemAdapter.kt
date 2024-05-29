@@ -11,7 +11,7 @@ import com.pdm115gt3g2.pedidosapp.db.relaciones.ItemConTipoItem
 class ItemAdapter(private var mList: List<ItemConTipoItem>): RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
     //accediendo a los text view de la vista: cardview_item
-    class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nombreItem: TextView = itemView.findViewById(R.id.nombreItem)
         val descripcionItem: TextView = itemView.findViewById(R.id.descripcionItem)
         val tipoItem: TextView = itemView.findViewById(R.id.tipoItem)

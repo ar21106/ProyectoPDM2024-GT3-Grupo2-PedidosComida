@@ -19,4 +19,8 @@ class MenuRepository(private var menuDao: MenuDao) {
     fun buscarPorId(id: Int): LiveData<MenuConItems> {
         return menuDao.findById(id)
     }
+
+    fun extraerMenus(): LiveData<List<Menu>>{
+        return menuDao.getAll()
+    }
 }

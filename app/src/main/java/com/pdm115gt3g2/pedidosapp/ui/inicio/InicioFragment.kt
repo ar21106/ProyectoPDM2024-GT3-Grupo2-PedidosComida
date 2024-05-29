@@ -1,28 +1,22 @@
 package com.pdm115gt3g2.pedidosapp.ui.inicio
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.pdm115gt3g2.pedidosapp.databinding.FragmentInicioBinding
-import com.pdm115gt3g2.pedidosapp.db.PedidosAppDataBase
-import com.pdm115gt3g2.pedidosapp.db.repositories.MenuRepository
 
 class InicioFragment : Fragment() {
 
+    //para usar el view model y el adapter para el recycler view
+    private lateinit var inicioViewModel: InicioViewModel
+    private lateinit var adapter: ItemAdapter
+
+    //predeterminado
     private var _binding: FragmentInicioBinding? = null
-
-    //repositorio para acceder a la BD
-    private lateinit var menuRepository: MenuRepository
-
-    //para usar el recycler view
-    private var layoutManager: RecyclerView.LayoutManager? = null
-    private var adapter: RecyclerView.Adapter<ItemAdapter.ViewHolder>? = null
-
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -32,18 +26,11 @@ class InicioFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val inicioViewModel =
-            ViewModelProvider(this).get(InicioViewModel::class.java)
-
         _binding = FragmentInicioBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        /*
-        val textView: TextView = binding.textInicio
-        inicioViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        */
+        // iniciando el view model usando AndroidViewModel
+        inicioViewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)).get(InicioViewModel::class.java)
 
         return root
     }
@@ -51,29 +38,22 @@ class InicioFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //TODO arreglar el recycler view para mostrar los items del menu principal
-
-        //extrayendo items del menu principal de la BD
-        //menu principal tiene id = 1
-        val db = PedidosAppDataBase.getDatabase(requireContext())
-        val menuDao = db.MenuDao()
-        menuRepository = MenuRepository(menuDao)
-
-
         //usando el recycler view
-        var recyclerView = binding.recycleViewItems
+        val recyclerView = binding.recycleViewItems
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        val adapter = ItemAdapter(listOf())
+        adapter = ItemAdapter(listOf())
         recyclerView.adapter = adapter
 
-        // Observe the LiveData from the repository
-        menuRepository.buscarPorId(1).observe(viewLifecycleOwner) { menu ->
-            menu?.let {
-                adapter.updateItems(it.items)
+        //observando la data del viewmodel a tiempo real
+        //se manejan valores nulos porque al inicio la base de datos no tiene data, esta se agrega en segundo plano con el worker
+        inicioViewModel.menuItems.observe(viewLifecycleOwner) { items ->
+            items?.let {
+                adapter.updateItems(it)
+            } ?: run {
+                // Handle null or empty case if needed
+                adapter.updateItems(emptyList())
             }
         }
-
-
     }
 
     override fun onDestroyView() {
