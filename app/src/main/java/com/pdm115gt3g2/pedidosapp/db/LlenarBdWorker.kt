@@ -3,14 +3,20 @@ package com.pdm115gt3g2.pedidosapp.db
 import android.content.Context
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
+import com.pdm115gt3g2.pedidosapp.db.dao.EstadoPedidoDao
 import com.pdm115gt3g2.pedidosapp.db.dao.ItemDao
 import com.pdm115gt3g2.pedidosapp.db.dao.MenuDao
 import com.pdm115gt3g2.pedidosapp.db.dao.MenuDetalleDao
+import com.pdm115gt3g2.pedidosapp.db.dao.PedidoDao
+import com.pdm115gt3g2.pedidosapp.db.dao.PedidoDetalleDao
 import com.pdm115gt3g2.pedidosapp.db.dao.TipoItemDao
 import com.pdm115gt3g2.pedidosapp.db.menus.Item
 import com.pdm115gt3g2.pedidosapp.db.menus.Menu
 import com.pdm115gt3g2.pedidosapp.db.menus.MenuDetalle
 import com.pdm115gt3g2.pedidosapp.db.menus.TipoItem
+import com.pdm115gt3g2.pedidosapp.db.pedidos.EstadoPedido
+import com.pdm115gt3g2.pedidosapp.db.pedidos.Pedido
+import com.pdm115gt3g2.pedidosapp.db.pedidos.PedidoDetalle
 import java.util.Date
 
 
@@ -18,7 +24,7 @@ class LlenarBdWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
     override suspend fun doWork(): Result {
         val db = PedidosAppDataBase.getDatabase(applicationContext)
-        populateDatabase(db.ItemDao(), db.MenuDao(), db.MenuDetalleDao(), db.TipoItemDao())
+        populateDatabase(db.ItemDao(), db.MenuDao(), db.MenuDetalleDao(), db.TipoItemDao(),db.PedidoDao(),db.PedidoDetalleDao(),db.EstadoPedidoDao())
         return Result.success()
     }
 
@@ -26,7 +32,10 @@ class LlenarBdWorker(context: Context, params: WorkerParameters) : CoroutineWork
         itemDao: ItemDao,
         menuDao: MenuDao,
         menuDetalleDao: MenuDetalleDao,
-        tipoItemDao: TipoItemDao
+        tipoItemDao: TipoItemDao,
+        pedidoDao: PedidoDao,
+        pedidoDetalleDao: PedidoDetalleDao,
+        estadoPedidoDao: EstadoPedidoDao
 
     ) {
         // *** INSERTANDO TIPO DE ITEMS ***
@@ -52,5 +61,23 @@ class LlenarBdWorker(context: Context, params: WorkerParameters) : CoroutineWork
         val detalle3 = MenuDetalle(idMenu = 2, idItem = 2)
         val detalle4 = MenuDetalle(idMenu = 2, idItem = 3)
         menuDetalleDao.insertMenuDetalle(detalle1, detalle2, detalle3, detalle4)
+
+        // *** INSERTANDO ESTADOS DE PEDIDOS ***
+        val estado1 = EstadoPedido("En curso")
+        val estado2 = EstadoPedido("Enviado al restaurante")
+        val estado3 = EstadoPedido("En camino")
+        val estado4 = EstadoPedido("Entregado y pagado")
+        val estado5 = EstadoPedido("Cancelado")
+        estadoPedidoDao.insertAll(estado1, estado2, estado3, estado4, estado5)
+
+        // *** INSERTANDO PEDIDO ***
+        val pedido = Pedido(1,1,1.00,Date(),30.00)
+        pedidoDao.insertAll(pedido)
+
+        // *** INSERTANDO DETALLE DEL PEDIDO ***
+        val detallepedido1 = PedidoDetalle(1,3,2)
+        val detallepedido2 = PedidoDetalle(1,1,3)
+        val detallepedido3 = PedidoDetalle(1,2,1)
+        pedidoDetalleDao.insertAll(detallepedido1, detallepedido2, detallepedido3)
     }
 }

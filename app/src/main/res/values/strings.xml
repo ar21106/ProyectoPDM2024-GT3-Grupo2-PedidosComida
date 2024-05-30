@@ -9,6 +9,14 @@
 
     <string name="menu_inicio">Inicio</string>
     <string name="menu_menus">Menus</string>
+    <string name="menu_pedido">Mi pedido</string>
 
     <string name="default_text">default text</string>
+
+    <string name="pedidosFragmentTittle">Mi pedido</string>
+    <string name="pedidosFragmentBoton">Hacer pedido</string>
+    <string name="pedidosFragmentEstado">Estado de su pedido:</string>
+    <string name="pedidosFragmentItems">Su orden:</string>
+    <string name="pedidosFragmentTotal">Total (USD) $:</string>
+    <string name="pedidosFragmentPropina">Propina (USD) $:</string>
 </resources>

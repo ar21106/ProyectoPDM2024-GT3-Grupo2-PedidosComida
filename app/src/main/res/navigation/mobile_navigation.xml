@@ -15,4 +15,9 @@
         android:name="com.pdm115gt3g2.pedidosapp.ui.menus.MenusFragment"
         android:label="@string/menu_menus"
         tools:layout="@layout/fragment_menus" />
+    <fragment
+        android:id="@+id/nav_pedido"
+        android:name="com.pdm115gt3g2.pedidosapp.ui.pedidos.PedidosFragment"
+        android:label="@string/menu_pedido"
+        tools:layout="@layout/fragment_pedidos" />
 </navigation>
