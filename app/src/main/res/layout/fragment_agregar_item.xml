@@ -11,16 +11,16 @@
         android:id="@+id/txtAgregarItemTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/agregarItemTitulo"
         android:padding="10dp"
-        android:textSize="18sp"/>
+        android:text="@string/agregarItemTitulo"
+        android:textSize="18sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="horizontal"
-        android:padding="10dp"
-        android:layout_gravity="center">
+        android:padding="10dp">
 
         <ImageView
             android:id="@+id/imageAgregarItem"
@@ -42,9 +42,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/default_text"
-                android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="28sp"/>
+                android:textSize="28sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtAgregarItemDescripcion"
@@ -56,10 +56,10 @@
                 android:id="@+id/txtAgregarItemPrecio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/default_text"
                 android:textAlignment="viewEnd"
-                android:textSize="18sp"
                 android:textColor="@color/green"
-                android:text="@string/default_text"/>
+                android:textSize="18sp" />
         </LinearLayout>
 
     </LinearLayout>
@@ -67,8 +67,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_gravity="center"
+        android:orientation="horizontal"
         android:padding="10dp">
 
         <TextView
