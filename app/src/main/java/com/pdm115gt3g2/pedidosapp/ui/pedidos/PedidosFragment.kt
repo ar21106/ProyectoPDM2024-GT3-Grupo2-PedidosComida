@@ -8,13 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pdm115gt3g2.pedidosapp.databinding.FragmentPedidosBinding
-import com.pdm115gt3g2.pedidosapp.ui.inicio.ItemAdapter
 
 class PedidosFragment : Fragment() {
 
     //para usar el view model y el adapter para el recycler view
     private lateinit var pedidosViewModel: PedidosViewModel
-    private lateinit var adapter: ItemAdapter
+    private lateinit var adapter: ItemPedidosAdapter
 
     //predeterminado
     private var _binding: FragmentPedidosBinding? = null
@@ -43,7 +42,7 @@ class PedidosFragment : Fragment() {
         //usando el recycler view
         val recyclerView = binding.recycleViewPedidoItems
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        adapter = ItemAdapter(listOf())
+        adapter = ItemPedidosAdapter(listOf())
         recyclerView.adapter = adapter
 
         //observando la data del viewmodel a tiempo real

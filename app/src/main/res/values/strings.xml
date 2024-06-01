@@ -10,6 +10,7 @@
     <string name="menu_inicio">Inicio</string>
     <string name="menu_menus">Menus</string>
     <string name="menu_pedido">Mi pedido</string>
+    <string name="menu_agregar_item">Agregar Item</string>
 
     <string name="default_text">default text</string>
 
@@ -19,4 +20,8 @@
     <string name="pedidosFragmentItems">Su orden:</string>
     <string name="pedidosFragmentTotal">Total (USD) $:</string>
     <string name="pedidosFragmentPropina">Propina (USD) $:</string>
+
+    <string name="agregarItemTitulo">Agrege el siguiente item a su pedido:</string>
+    <string name="agregarItemCantidad">Cantidad:</string>
+    <string name="agregarItemBoton">Agregar</string>
 </resources>
