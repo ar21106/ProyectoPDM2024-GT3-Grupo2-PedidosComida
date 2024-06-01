@@ -14,5 +14,5 @@ data class PedidoConItems(
         entityColumn = "idItem",
         associateBy = Junction(PedidoDetalle::class)
     )
-    val items: List<ItemConTipoItem>
+    val items: List<ItemConCantidad>
 )
