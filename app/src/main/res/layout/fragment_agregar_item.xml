@@ -38,6 +38,13 @@
             android:padding="10dp">
 
             <TextView
+                android:id="@+id/txtAgregarItemId"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@string/default_text"
+                android:visibility="invisible"/>
+
+            <TextView
                 android:id="@+id/txtAgregarItemNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -51,6 +58,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/default_text" />
+
+            <TextView
+                android:id="@+id/txtAgregarItemTipo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/default_text"/>
 
             <TextView
                 android:id="@+id/txtAgregarItemPrecio"
@@ -92,6 +105,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginVertical="40dp"
+        android:backgroundTint="@color/green"
         android:text="@string/agregarItemBoton" />
+
+    <Button
+        android:id="@+id/btnEliminarItemPedido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/eliminarItemBoton"
+        android:visibility="invisible"/>
 
 </LinearLayout>

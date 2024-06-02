@@ -16,7 +16,6 @@ import com.pdm115gt3g2.pedidosapp.db.menus.MenuDetalle
 import com.pdm115gt3g2.pedidosapp.db.menus.TipoItem
 import com.pdm115gt3g2.pedidosapp.db.pedidos.EstadoPedido
 import com.pdm115gt3g2.pedidosapp.db.pedidos.Pedido
-import com.pdm115gt3g2.pedidosapp.db.pedidos.PedidoDetalle
 import java.util.Date
 
 
@@ -75,9 +74,12 @@ class LlenarBdWorker(context: Context, params: WorkerParameters) : CoroutineWork
         pedidoDao.insertAll(pedido)
 
         // *** INSERTANDO DETALLE DEL PEDIDO ***
+        /*
         val detallepedido1 = PedidoDetalle(1,3,2)
         val detallepedido2 = PedidoDetalle(1,1,3)
         val detallepedido3 = PedidoDetalle(1,2,1)
         pedidoDetalleDao.insertAll(detallepedido1, detallepedido2, detallepedido3)
+
+         */
     }
 }

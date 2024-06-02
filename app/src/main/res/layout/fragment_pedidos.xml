@@ -11,10 +11,8 @@
         android:id="@+id/pedidoTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primarioRojo"
         android:padding="10dp"
         android:text="@string/pedidosFragmentTittle"
-        android:textColor="@color/white"
         android:textSize="28sp"
         android:textStyle="bold" />
 
@@ -27,10 +25,8 @@
             android:id="@+id/lblEstado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/primarioRojo"
             android:padding="10dp"
             android:text="@string/pedidosFragmentEstado"
-            android:textColor="@color/white"
             android:textStyle="bold" />
 
         <TextView
@@ -48,17 +44,14 @@
         android:id="@+id/lblItems"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/primarioRojo"
         android:padding="10dp"
         android:text="@string/pedidosFragmentItems"
-        android:textColor="@color/white"
         android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewPedidoItems"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primarioRojo"
         tools:itemCount="3"
         tools:listitem="@layout/cardview_item">
 
@@ -73,10 +66,8 @@
             android:id="@+id/lblTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/primarioRojo"
             android:padding="10dp"
             android:text="@string/pedidosFragmentTotal"
-            android:textColor="@color/white"
             android:textStyle="bold" />
 
         <TextView
@@ -97,16 +88,14 @@
             android:id="@+id/lblPropina"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/primarioRojo"
             android:padding="10dp"
             android:text="@string/pedidosFragmentPropina"
-            android:textColor="@color/white"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/txtPropina"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:ems="10"
             android:padding="10dp"
