@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".ui.direccion.DireccionFragment"
+    android:padding="10dp">
+
+
+    <TextView
+        android:id="@+id/direccionTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="@string/direccionTitulo"/>
+
+    <TextView
+        android:id="@+id/lblDireccionNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:text="@string/direccionNombre" />
+    <EditText
+        android:id="@+id/txtDireccionNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginBottom="15dp"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/lblDireccionCalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:text="@string/direccionCalle" />
+    <EditText
+        android:id="@+id/txtDireccionCalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginBottom="15dp"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/lblDireccionColonia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:text="@string/direccionColoniaBarrio" />
+    <EditText
+        android:id="@+id/txtDireccionColonia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginBottom="15dp"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/lblDireccionCasa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:text="@string/direccionNumCasa" />
+    <EditText
+        android:id="@+id/txtDireccionCasa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginBottom="15dp"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/lblDireccionDepartamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:text="@string/direccionDepartamento"/>
+    <Spinner
+        android:id="@+id/spnDepartamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:entries="@array/departamentos" />
+
+    <TextView
+        android:id="@+id/lblDireccionMunicipio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:text="@string/direccionMunicipio" />
+    <EditText
+        android:id="@+id/txtDireccionMunicipio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginBottom="15dp"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/lblDireccionReferencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:text="@string/direccionReferencia" />
+
+    <EditText
+        android:id="@+id/txtDireccionReferencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:ems="10"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btnAgregarDireccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/agregarItemBoton" />
+
+
+</LinearLayout>
+</ScrollView>

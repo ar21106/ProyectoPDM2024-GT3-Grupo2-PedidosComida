@@ -62,24 +62,14 @@ class LlenarBdWorker(context: Context, params: WorkerParameters) : CoroutineWork
         menuDetalleDao.insertMenuDetalle(detalle1, detalle2, detalle3, detalle4)
 
         // *** INSERTANDO ESTADOS DE PEDIDOS ***
-        val estado1 = EstadoPedido("En curso")
+        val estado1 = EstadoPedido("No enviado")
         val estado2 = EstadoPedido("Enviado al restaurante")
         val estado3 = EstadoPedido("En camino")
         val estado4 = EstadoPedido("Entregado y pagado")
-        val estado5 = EstadoPedido("Cancelado")
-        estadoPedidoDao.insertAll(estado1, estado2, estado3, estado4, estado5)
+        estadoPedidoDao.insertAll(estado1, estado2, estado3, estado4)
 
         // *** INSERTANDO PEDIDO ***
-        val pedido = Pedido(1,1,1.00,Date(),30.00)
+        val pedido = Pedido(1,1,1.00,Date(),0.00)
         pedidoDao.insertAll(pedido)
-
-        // *** INSERTANDO DETALLE DEL PEDIDO ***
-        /*
-        val detallepedido1 = PedidoDetalle(1,3,2)
-        val detallepedido2 = PedidoDetalle(1,1,3)
-        val detallepedido3 = PedidoDetalle(1,2,1)
-        pedidoDetalleDao.insertAll(detallepedido1, detallepedido2, detallepedido3)
-
-         */
     }
 }

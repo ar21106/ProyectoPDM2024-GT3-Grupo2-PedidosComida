@@ -16,4 +16,8 @@ interface PedidoDao{
 
     @Insert
     fun insertAll(vararg pedido: Pedido)
+
+    @Query("UPDATE Pedido SET idEstado = :idEstado WHERE idPedido = :idPedido")
+    fun updateEstadoPedido(idEstado: Int, idPedido: Int)
+
 }
