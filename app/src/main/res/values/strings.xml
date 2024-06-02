@@ -13,6 +13,7 @@
     <string name="menu_agregar_item">Agregar Item</string>
 
     <string name="default_text">default text</string>
+    <string name="default_number">999</string>
 
     <string name="pedidosFragmentTittle">Mi pedido</string>
     <string name="pedidosFragmentBoton">Hacer pedido</string>
@@ -24,4 +25,7 @@
     <string name="agregarItemTitulo">Agrege el siguiente item a su pedido:</string>
     <string name="agregarItemCantidad">Cantidad:</string>
     <string name="agregarItemBoton">Agregar</string>
+    <string name="eliminarItemBoton">Eliminar</string>
+
+    <string name="SignoUsd">$</string>
 </resources>

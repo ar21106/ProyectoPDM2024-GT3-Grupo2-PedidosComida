@@ -19,7 +19,11 @@
         android:id="@+id/nav_menus"
         android:name="com.pdm115gt3g2.pedidosapp.ui.menus.MenusFragment"
         android:label="@string/menu_menus"
-        tools:layout="@layout/fragment_menus" />
+        tools:layout="@layout/fragment_menus" >
+        <action
+            android:id="@+id/action_nav_menus_to_nav_inicio"
+            app:destination="@id/nav_inicio" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_pedido"

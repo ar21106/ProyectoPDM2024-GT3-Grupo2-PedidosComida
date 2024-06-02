@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.pdm115gt3g2.pedidosapp.R
@@ -13,6 +14,7 @@ class ItemAdapter(private var mList: List<ItemConTipoItem>): RecyclerView.Adapte
 
     //accediendo a los text view de la vista: cardview_item
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+        val idItem: TextView = itemView.findViewById(R.id.idItem)
         val nombreItem: TextView = itemView.findViewById(R.id.nombreItem)
         val descripcionItem: TextView = itemView.findViewById(R.id.descripcionItem)
         val tipoItem: TextView = itemView.findViewById(R.id.tipoItem)
@@ -23,7 +25,16 @@ class ItemAdapter(private var mList: List<ItemConTipoItem>): RecyclerView.Adapte
         }
 
         override fun onClick(v: View?) {
-            findNavController(itemView).navigate(R.id.action_nav_inicio_to_nav_agregar_item)
+            val bundle = bundleOf(
+                "origen" to "menu",
+                "idItem" to idItem.text,
+                "nombreItem" to nombreItem.text,
+                "descripcionItem" to descripcionItem.text,
+                "tipoItem" to tipoItem.text,
+                "precioItem" to precioItem.text,
+                "cantidadItem" to "1"
+            )
+            findNavController(itemView).navigate(R.id.action_nav_inicio_to_nav_agregar_item, bundle)
         }
     }
 
@@ -38,6 +49,7 @@ class ItemAdapter(private var mList: List<ItemConTipoItem>): RecyclerView.Adapte
     override fun onBindViewHolder(holder: ItemAdapter.ViewHolder, position: Int) {
         val itemViewModel = mList[position]
 
+        holder.idItem.text = itemViewModel.item.idItem.toString()
         holder.nombreItem.text = itemViewModel.item.nombreItem
         holder.descripcionItem.text = itemViewModel.item.descripcionItem
         holder.tipoItem.text = itemViewModel.tipo.nombreTipo

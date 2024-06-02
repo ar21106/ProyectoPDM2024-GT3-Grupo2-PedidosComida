@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.pdm115gt3g2.pedidosapp.R
@@ -13,6 +14,7 @@ class ItemPedidosAdapter(private var mList: List<ItemConCantidad>): RecyclerView
 
     //accediendo a los text view de la vista cardview
     class ViewHolder(itemPedidoView: View) : RecyclerView.ViewHolder(itemPedidoView), View.OnClickListener {
+        val idItem: TextView = itemPedidoView.findViewById(R.id.idItemPedido)
         val nombreItem: TextView = itemPedidoView.findViewById(R.id.nombreItemPedido)
         val descripcionItem: TextView = itemPedidoView.findViewById(R.id.descripcionItemPedido)
         val tipoItem: TextView = itemPedidoView.findViewById(R.id.tipoItemPedido)
@@ -24,8 +26,18 @@ class ItemPedidosAdapter(private var mList: List<ItemConCantidad>): RecyclerView
         }
 
         override fun onClick(v: View?) {
-            Navigation.findNavController(itemView).navigate(R.id.action_nav_pedido_to_nav_agregar_item)
+            val bundle = bundleOf(
+                "origen" to "pedido",
+                "idItem" to idItem.text,
+                "nombreItem" to nombreItem.text,
+                "descripcionItem" to descripcionItem.text,
+                "tipoItem" to tipoItem.text,
+                "precioItem" to precioItem.text,
+                "cantidadItem" to cantidadItem.text
+            )
+            Navigation.findNavController(itemView).navigate(R.id.action_nav_pedido_to_nav_agregar_item, bundle)
         }
+
     }
 
     //accediendo a la vista: item_formulario
@@ -39,11 +51,12 @@ class ItemPedidosAdapter(private var mList: List<ItemConCantidad>): RecyclerView
     override fun onBindViewHolder(holder: ItemPedidosAdapter.ViewHolder, position: Int) {
         val itemPedidoViewModel = mList[position]
 
+        holder.idItem.text = itemPedidoViewModel.item.idItem.toString()
         holder.nombreItem.text = itemPedidoViewModel.item.nombreItem
         holder.descripcionItem.text = itemPedidoViewModel.item.descripcionItem
         holder.tipoItem.text = itemPedidoViewModel.tipo.nombreTipo
         holder.precioItem.text = itemPedidoViewModel.item.precioItem.toString()
-        //holder.cantidadItem.text = itemPedidoViewModel.cantidadItem.toString()
+        holder.cantidadItem.text = itemPedidoViewModel.pedidoDetalle.cantidadItem.toString()
     }
 
     //retornando tamaño de la lista
