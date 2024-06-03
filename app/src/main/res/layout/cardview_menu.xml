@@ -13,16 +13,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="20dp">
 
 
         <ImageView
             android:id="@+id/imageMenu"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/baseline_broken_image_24"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center"
+            android:layout_weight="4"
+            app:srcCompat="@drawable/silverware_fork_knife" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,12 +42,14 @@
                 android:id="@+id/nombreMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
                 android:text="@string/default_text" />
 
             <TextView
                 android:id="@+id/descripcionMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textStyle="italic"
                 android:text="@string/default_text" />
         </LinearLayout>
     </LinearLayout>
