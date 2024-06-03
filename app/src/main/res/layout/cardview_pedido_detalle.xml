@@ -18,15 +18,17 @@
 
         <ImageView
             android:id="@+id/imageItemPedido"
-            android:layout_width="100dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/baseline_broken_image_24"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            app:srcCompat="@drawable/food" />
 
         <LinearLayout
-            android:layout_width="200dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="10dp"
+            android:layout_weight="2"
             android:orientation="vertical">
 
             <TextView
@@ -38,25 +40,25 @@
 
             <TextView
                 android:id="@+id/nombreItemPedido"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/default_text" />
 
             <TextView
                 android:id="@+id/descripcionItemPedido"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/default_text" />
 
             <TextView
                 android:id="@+id/tipoItemPedido"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/default_text" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
@@ -70,7 +72,7 @@
 
                 <TextView
                     android:id="@+id/precioItemPedido"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/green"
                     android:textStyle="bold"
@@ -81,10 +83,11 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/lblCantidadItemPedido"
