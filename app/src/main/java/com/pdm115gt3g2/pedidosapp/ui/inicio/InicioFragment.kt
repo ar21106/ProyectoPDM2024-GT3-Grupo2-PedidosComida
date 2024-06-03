@@ -32,6 +32,16 @@ class InicioFragment : Fragment() {
         // iniciando el view model usando AndroidViewModel
         inicioViewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)).get(InicioViewModel::class.java)
 
+        //leyendo argumentos
+        val origen = arguments?.getString("origen")
+        var id = arguments?.getString("id")
+
+        //si no se abrio la vista desde la seleccion de menu, se abrirá el menu id 1
+        if (!origen.equals("menu")) id = "1"
+
+        //si no: establecemos la id del menu correspondiente
+        inicioViewModel.setId(id.toString().toInt())
+
         return root
     }
 

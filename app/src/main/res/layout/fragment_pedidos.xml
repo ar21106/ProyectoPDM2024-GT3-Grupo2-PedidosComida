@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".ui.pedidos.PedidosFragment">
+
+
+    <TextView
+        android:id="@+id/pedidoTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/pedidosFragmentTittle"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lblEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/pedidosFragmentEstado"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtEstado"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:text="@string/default_text"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/lblItems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/pedidosFragmentItems"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleViewPedidoItems"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:itemCount="3"
+        tools:listitem="@layout/cardview_item">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lblTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/pedidosFragmentTotal"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/default_text" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lblPropina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/pedidosFragmentPropina"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/txtPropina"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:padding="10dp"
+            android:inputType="numberDecimal" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnHacerPedido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:text="@string/pedidosFragmentBoton"
+        android:textStyle="bold" />
+</LinearLayout>
+</ScrollView>
