@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="departamentos">
+        <item>Ahuachapan</item>
+        <item>Cabañas</item>
+        <item>Chalatenango</item>
+        <item>Cuscatlan</item>
+        <item>La Libertad</item>
+        <item>Morazan</item>
+        <item>La Paz</item>
+        <item>Santa Ana</item>
+        <item>San Miguel</item>
+        <item>San Salvador</item>
+        <item>San Vicente</item>
+        <item>Sonsonate</item>
+        <item>La Union</item>
+        <item>Usulutan</item>
+    </string-array>
+</resources>

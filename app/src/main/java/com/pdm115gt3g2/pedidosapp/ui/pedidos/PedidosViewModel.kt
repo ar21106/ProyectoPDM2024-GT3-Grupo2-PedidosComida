@@ -6,20 +6,21 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.pdm115gt3g2.pedidosapp.db.PedidosAppDataBase
 import com.pdm115gt3g2.pedidosapp.db.relaciones.ItemConCantidad
+import com.pdm115gt3g2.pedidosapp.db.relaciones.PedidoConItems
 import com.pdm115gt3g2.pedidosapp.db.repositories.PedidoRepository
 
 class PedidosViewModel(application: Application) : AndroidViewModel(application){
-    //para acceder al repositorio
+
     private val pedidoRepository: PedidoRepository
-    //para los valores nulos, cuando al iniciar la app la bd no tiene nada
     private val _pedidoItems = MutableLiveData<List<ItemConCantidad>>()
-    //para cuando la bd ya tenga data (el worker ha terminado de añadir la data)
     val pedidoItems: LiveData<List<ItemConCantidad>> get() = _pedidoItems
+    val pedidoConItems: LiveData<PedidoConItems>
 
     init {
         val db = PedidosAppDataBase.getDatabase(application)
         val pedidoDao = db.PedidoDao()
         pedidoRepository = PedidoRepository(pedidoDao)
+        pedidoConItems = pedidoRepository.pedidoItems
         fetchPedidoItems()
     }
 

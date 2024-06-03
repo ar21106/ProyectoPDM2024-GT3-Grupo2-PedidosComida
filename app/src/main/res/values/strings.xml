@@ -11,6 +11,7 @@
     <string name="menu_menus">Menus</string>
     <string name="menu_pedido">Mi pedido</string>
     <string name="menu_agregar_item">Agregar Item</string>
+    <string name="menu_direccion">Direccion de entrega</string>
 
     <string name="default_text">default text</string>
     <string name="default_number">999</string>
@@ -28,4 +29,13 @@
     <string name="eliminarItemBoton">Eliminar</string>
 
     <string name="SignoUsd">$</string>
+
+    <string name="direccionTitulo">Especifique su direccion para la entrega</string>
+    <string name="direccionNombre">Ponle un nombre a tu direccion:</string>
+    <string name="direccionCalle">Nombre o numero de la calle:</string>
+    <string name="direccionColoniaBarrio">Nombre de la colonia o barrio:</string>
+    <string name="direccionNumCasa">Numero de casa:</string>
+    <string name="direccionDepartamento">Departamento:</string>
+    <string name="direccionMunicipio">Municipio:</string>
+    <string name="direccionReferencia">Especifique una referencia para encontrar su direccion:</string>
 </resources>

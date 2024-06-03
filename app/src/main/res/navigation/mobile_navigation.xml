@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_nav_pedido_to_nav_agregar_item"
             app:destination="@id/nav_agregar_item" />
+        <action
+            android:id="@+id/action_nav_pedido_to_nav_direccion"
+            app:destination="@id/nav_direccion" />
     </fragment>
 
     <fragment
@@ -40,4 +43,14 @@
         android:name="com.pdm115gt3g2.pedidosapp.ui.pedidos.AgregarItemFragment"
         android:label="@string/menu_agregar_item"
         tools:layout="@layout/fragment_agregar_item" />
+
+    <fragment
+        android:id="@+id/nav_direccion"
+        android:name="com.pdm115gt3g2.pedidosapp.ui.direccion.DireccionFragment"
+        android:label="@string/menu_direccion"
+        tools:layout="@layout/fragment_agregar_item" >
+        <action
+            android:id="@+id/action_nav_direccion_to_nav_pedido"
+            app:destination="@id/nav_pedido" />
+    </fragment>
 </navigation>
